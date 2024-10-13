@@ -47,9 +47,11 @@ MonoBehaviour:
   selectedTower: {fileID: 1147796988440479097, guid: aa14186f9c84da348aeab7b613de2e44, type: 3}
   selectedTowerGhost: {fileID: 8652408074924574060, guid: 0b42a3a055fc6ed4da6a92315932b5c4, type: 3}
   baseGrid: {fileID: 4206729626706923250, guid: 8cbebd6700bfc3c4b815377be69715e6, type: 3}
-  towerA: {fileID: 1147796988440479097, guid: aa14186f9c84da348aeab7b613de2e44, type: 3}
-  towerB: {fileID: 1427219584235204291, guid: 241b3dd1634bb4c4c96bd43e02ad4623, type: 3}
-  towerAGhost: {fileID: 8652408074924574060, guid: 0b42a3a055fc6ed4da6a92315932b5c4, type: 3}
-  towerBGhost: {fileID: 6834582177220042181, guid: 8c59cf818b8bb2642ac9df2c4ce7564a, type: 3}
-  towerUpgrade: {fileID: 7576827141589382899, guid: d1df7053d5785254589c1a9a66664fc7, type: 3}
+  AttackTower: {fileID: 1147796988440479097, guid: aa14186f9c84da348aeab7b613de2e44, type: 3}
+  AttackGhost: {fileID: 8652408074924574060, guid: 0b42a3a055fc6ed4da6a92315932b5c4, type: 3}
+  ResourceTower: {fileID: 1427219584235204291, guid: 241b3dd1634bb4c4c96bd43e02ad4623, type: 3}
+  ResourceGhost: {fileID: 6834582177220042181, guid: 8c59cf818b8bb2642ac9df2c4ce7564a, type: 3}
+  Upgrade: {fileID: 7576827141589382899, guid: d1df7053d5785254589c1a9a66664fc7, type: 3}
+  AttackTower2: {fileID: 7642912136791913499, guid: 4b68972425762e24bbb938eb34e85a44, type: 3}
+  AttackGhost2: {fileID: 8652408074924574060, guid: 0b42a3a055fc6ed4da6a92315932b5c4, type: 3}
   money: 1000

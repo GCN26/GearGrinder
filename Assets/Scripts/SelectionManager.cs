@@ -6,24 +6,30 @@ public class SelectionManager : MonoBehaviour
 {
     public GameObject selectedTower, selectedTowerGhost;
     public GameObject baseGrid;
-    public GameObject towerA, towerB, towerAGhost, towerBGhost, towerUpgrade;
+    public GameObject AttackTower, AttackGhost, ResourceTower, ResourceGhost, Upgrade;
+    public GameObject AttackTower2, AttackGhost2;
 
     public int money;
 
     public void switchAttack()
     {
-        selectedTower = towerA;
-        selectedTowerGhost = towerAGhost;
+        selectedTower = AttackTower;
+        selectedTowerGhost = AttackGhost;
+    }
+    public void switchAttack2()
+    {
+        selectedTower = AttackTower2;
+        selectedTowerGhost = AttackGhost2;
     }
     public void switchResource()
     {
-        selectedTower = towerB;
-        selectedTowerGhost = towerBGhost;
+        selectedTower = ResourceTower;
+        selectedTowerGhost = ResourceGhost;
     }
     public void switchUpgrade()
     {
         //eventually replace with leveling up instead of replacing with a selected tower
-        selectedTower = towerUpgrade;
-        selectedTowerGhost = towerUpgrade;
+        selectedTower = Upgrade;
+        selectedTowerGhost = Upgrade;
     }
 }

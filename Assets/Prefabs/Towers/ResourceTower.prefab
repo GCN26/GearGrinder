@@ -53,7 +53,7 @@ MonoBehaviour:
   hp: 0
   maxHP: 10
   gatherTimer: 0
-  gatherTimerTarget: 10
+  gatherTimerTarget: 5
   moneyPerHarvest: 50
 --- !u!61 &2288441760003772482
 BoxCollider2D:
