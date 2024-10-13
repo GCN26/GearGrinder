@@ -44,6 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7481a126dc383f6479b5de2451055406, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedTower: {fileID: 8652408074924574060, guid: 0b42a3a055fc6ed4da6a92315932b5c4, type: 3}
-  towerA: {fileID: 8652408074924574060, guid: 0b42a3a055fc6ed4da6a92315932b5c4, type: 3}
+  selectedTower: {fileID: 1147796988440479097, guid: aa14186f9c84da348aeab7b613de2e44, type: 3}
+  selectedTowerGhost: {fileID: 8652408074924574060, guid: 0b42a3a055fc6ed4da6a92315932b5c4, type: 3}
+  towerA: {fileID: 1147796988440479097, guid: aa14186f9c84da348aeab7b613de2e44, type: 3}
   towerB: {fileID: 6834582177220042181, guid: 8c59cf818b8bb2642ac9df2c4ce7564a, type: 3}
+  towerAGhost: {fileID: 8652408074924574060, guid: 0b42a3a055fc6ed4da6a92315932b5c4, type: 3}
+  towerBGhost: {fileID: 6834582177220042181, guid: 8c59cf818b8bb2642ac9df2c4ce7564a, type: 3}
+  towerUpgrade: {fileID: 7576827141589382899, guid: d1df7053d5785254589c1a9a66664fc7, type: 3}

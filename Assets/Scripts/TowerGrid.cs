@@ -6,35 +6,32 @@ using UnityEditor.Tilemaps;
 using UnityEditor.UI;
 using UnityEngine;
 
-public class TowerGrid : MonoBehaviour
+public class TowerGrid : BaseTowerScript
 {
-    private bool highlighted;
-    public GameObject gridManager;
+    private GameObject tower = null;
+    
 
     private void OnMouseOver()
     {
-        highlighted = true;
-    }
-    private void OnMouseExit()
-    {
-        highlighted = false;
+        if (gridManager.GetComponent<SelectionManager>().selectedTower != upgradeTower)
+        {
+            highlighted = true;
+        }
     }
 
-    private void Update()
+    private void OnMouseDown()
     {
-        //if grid is selected and no tower is already on that space, if click, build tower
-        GameObject towerGhost = null;
-        if (highlighted)
+        //if tower is attack, resource, or maintenance
+        //no upgrades
+        if (highlighted && gridManager.GetComponent<SelectionManager>().selectedTower != upgradeTower)
         {
-            if (!GameObject.Find("TowerGhost" + this.name))
-            {
-                towerGhost = Instantiate(gridManager.GetComponent<SelectionManager>().selectedTower, transform.position, transform.rotation);
-                towerGhost.name = "TowerGhost" + this.name;
-            }
-        }
-        if (highlighted == false)
-        {
-            Destroy(GameObject.Find("TowerGhost" + this.name));
+            tower = Instantiate(gridManager.GetComponent<SelectionManager>().selectedTower,transform.position, transform.rotation);
+            tower.name = "Tower" + this.name;
+            tower.GetComponent<BaseTowerScript>().gridManager = gridManager;
+            highlighted = false;
+            Destroy(towerGhost);
+            Destroy(gameObject);
         }
     }
+
 }

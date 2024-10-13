@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridManager: {fileID: 0}
+  upgradeTower: {fileID: 7576827141589382899, guid: d1df7053d5785254589c1a9a66664fc7, type: 3}
 --- !u!61 &5871332863706405872
 BoxCollider2D:
   m_ObjectHideFlags: 0
