@@ -5,7 +5,7 @@ using UnityEngine;
 public class SelectionManager : MonoBehaviour
 {
     public GameObject selectedTower, selectedTowerGhost;
-
+    public GameObject baseGrid;
     public GameObject towerA, towerB, towerAGhost, towerBGhost, towerUpgrade;
 
     public int money;

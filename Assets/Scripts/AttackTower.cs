@@ -8,10 +8,20 @@ public class AttackTower : MainTower
     public float attackTimerTarget = 1.5f;
     public List<GameObject> targets;
     public GameObject searchRadius;
+    public GameObject head;
 
-    private void Update()
+    //add values for damage - subject to change
+
+    public override void Update()
     {
-        attackTimer += Time.deltaTime;
+        base.Update();
+
+        if (targets.Count > 0)
+        {
+            attackTimer += Time.deltaTime;
+            //rotate head to face target
+        }
+        else attackTimer = 0;
 
         if(attackTimer >= attackTimerTarget)
         {
@@ -26,25 +36,32 @@ public class AttackTower : MainTower
                 targets.RemoveAt(i);
             }
         }
-
-        //Tower Ghost shows up on valid selections
-        //if grid is selected and no tower is already on that space, if click, build tower
-        if (highlighted)
-        {
-            if (!GameObject.Find("Ghost" + this.name))
-            {
-                towerGhost = Instantiate(gridManager.GetComponent<SelectionManager>().selectedTowerGhost, transform.position, transform.rotation);
-                towerGhost.name = "Ghost" + this.name;
-            }
-        }
-        if (highlighted == false)
-        {
-            Destroy(GameObject.Find("Ghost" + this.name));
-        }
-        //if hp <= 0, reset to grid space
     }
     private void OnDestroy()
     {
         targets = null;
+    }
+
+    public override void UpgradeFunction()
+    {
+        if (level == 1)
+        {
+            attackTimerTarget = 1.5f;
+            searchRadius.transform.localScale = new Vector3(5, 5, 1);
+            maxHP = 10;
+        }
+        else if (level == 2)
+        {
+            attackTimerTarget = 1f;
+            searchRadius.transform.localScale = new Vector3(6, 6, 1);
+            maxHP = 20;
+        }
+        else if (level == 3)
+        {
+            attackTimerTarget = .5f;
+            searchRadius.transform.localScale = new Vector3(7.5f, 7.5f, 1);
+            maxHP = 35;
+        }
+        base.UpgradeFunction();
     }
 }
