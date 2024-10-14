@@ -59,6 +59,7 @@ MonoBehaviour:
   targets: []
   searchRadius: {fileID: 8212405777875111691}
   head: {fileID: 6097122830155533655}
+  damage: 1
 --- !u!61 &-2267692382404035655
 BoxCollider2D:
   m_ObjectHideFlags: 0

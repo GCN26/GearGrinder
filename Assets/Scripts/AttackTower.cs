@@ -9,6 +9,7 @@ public class AttackTower : MainTower
     public List<GameObject> targets;
     public GameObject searchRadius;
     public GameObject head;
+    public int damage;
 
     //add values for damage - subject to change
 
@@ -26,7 +27,7 @@ public class AttackTower : MainTower
         if(attackTimer >= attackTimerTarget)
         {
             attackTimer = 0;
-            Destroy(targets[0]);
+            targets[0].GetComponent<BaseEnemyScript>().Damaged(damage);
         }
 
         for(int i = 0;i< targets.Count; i++)
@@ -49,18 +50,21 @@ public class AttackTower : MainTower
             attackTimerTarget = 1.5f;
             searchRadius.transform.localScale = new Vector3(5, 5, 1);
             maxHP = 10;
+            damage = 1;
         }
         else if (level == 2)
         {
             attackTimerTarget = 1f;
             searchRadius.transform.localScale = new Vector3(6, 6, 1);
             maxHP = 20;
+            damage = 3;
         }
         else if (level == 3)
         {
             attackTimerTarget = .5f;
             searchRadius.transform.localScale = new Vector3(7.5f, 7.5f, 1);
             maxHP = 35;
+            damage = 5;
         }
         base.UpgradeFunction();
     }

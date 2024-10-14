@@ -2,15 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PathNodeScript : MonoBehaviour
+public class BaseEnemyScript : MonoBehaviour
 {
-    //Rework into basic enemy script with hp
+    public int hp;
+    public int maxHP;
     public AmNode[] nodes;
     int currentNode = 0;
     public float speed;
     public float tolerance;
 
-    void Update()
+    public virtual void Start()
+    {
+        hp = maxHP;
+    }
+
+    public virtual void Update()
+    {
+        PathFunction();
+        if(hp <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    public virtual void PathFunction()
     {
         Vector3 targetPosition = nodes[currentNode].transform.position;
         Vector3 direction = targetPosition - this.transform.position;
@@ -23,5 +38,9 @@ public class PathNodeScript : MonoBehaviour
             currentNode = currentNode + 1;
             currentNode = currentNode % nodes.Length;
         }
+    }
+    public virtual void Damaged(int damage)
+    {
+        hp -= damage;
     }
 }

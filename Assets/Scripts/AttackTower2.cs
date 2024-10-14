@@ -9,6 +9,7 @@ public class AttackTower2 : MainTower
     public List<GameObject> targets;
     public GameObject searchRadius;
     public GameObject head;
+    public int damage;
 
     public GameObject zapCircle;
     public float zapShowTimer;
@@ -45,7 +46,7 @@ public class AttackTower2 : MainTower
             attackTimer = 0;
             zapShowTimer = 0;
             for(int i = 0; i < targets.Count; i++) {
-                Destroy(targets[i]);
+                targets[0].GetComponent<BaseEnemyScript>().Damaged(damage);
             }
             
         }
@@ -71,6 +72,7 @@ public class AttackTower2 : MainTower
             searchRadius.transform.localScale = new Vector3(5, 5, 1);
             zapCircle.transform.localScale = new Vector3(5, 5, 1);
             maxHP = 10;
+            damage = 1;
         }
         else if (level == 2)
         {
@@ -78,6 +80,7 @@ public class AttackTower2 : MainTower
             searchRadius.transform.localScale = new Vector3(6, 6, 1);
             zapCircle.transform.localScale = new Vector3(6, 6, 1);
             maxHP = 20;
+            damage = 3;
         }
         else if (level == 3)
         {
@@ -85,6 +88,7 @@ public class AttackTower2 : MainTower
             searchRadius.transform.localScale = new Vector3(7.5f, 7.5f, 1);
             zapCircle.transform.localScale = new Vector3(7.5f, 7.5f, 1);
             maxHP = 35;
+            damage = 5;
         }
         base.UpgradeFunction();
     }
