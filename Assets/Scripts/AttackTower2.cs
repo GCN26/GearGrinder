@@ -9,7 +9,7 @@ public class AttackTower2 : MainTower
     public List<GameObject> targets;
     public GameObject searchRadius;
     public GameObject head;
-    public int damage;
+    public float damage;
 
     public GameObject zapCircle;
     public float zapShowTimer;

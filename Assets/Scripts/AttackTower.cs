@@ -9,7 +9,7 @@ public class AttackTower : MainTower
     public List<GameObject> targets;
     public GameObject searchRadius;
     public GameObject head;
-    public int damage;
+    public float damage;
 
     //add values for damage - subject to change
 
