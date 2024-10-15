@@ -11,6 +11,7 @@ public class MainTower : BaseTowerScript
     public virtual void Start()
     {
         hp = maxHP;
+        level = 1;
     }
     public override void Update()
     {

@@ -54,4 +54,6 @@ MonoBehaviour:
   Upgrade: {fileID: 7576827141589382899, guid: d1df7053d5785254589c1a9a66664fc7, type: 3}
   AttackTower2: {fileID: 7642912136791913499, guid: 4b68972425762e24bbb938eb34e85a44, type: 3}
   AttackGhost2: {fileID: 8652408074924574060, guid: 0b42a3a055fc6ed4da6a92315932b5c4, type: 3}
+  pawn: {fileID: 9177491289401539034, guid: 092a0ca40cbeb6243ae71ffb8e09fec3, type: 3}
+  shield: {fileID: 8322795654611704023, guid: 15cec21f7d6f7084db708bfb26153cf2, type: 3}
   money: 1000
