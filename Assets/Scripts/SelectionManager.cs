@@ -7,7 +7,7 @@ public class SelectionManager : MonoBehaviour
 {
     public GameObject selectedTower, selectedTowerGhost;
     public GameObject baseGrid;
-    public GameObject AttackTower, AttackGhost, ResourceTower, ResourceGhost, Upgrade;
+    public GameObject AttackTower, AttackGhost, ResourceTower, ResourceGhost, Upgrade, DestroyT;
     public GameObject AttackTower2, AttackGhost2;
 
     public GameObject pawn, shield;
@@ -17,6 +17,7 @@ public class SelectionManager : MonoBehaviour
 
     public int money;
 
+    //these switch functions should be replaced with a function that asks for a variable to switch to that tower
     public void switchAttack()
     {
         selectedTower = AttackTower;
@@ -37,6 +38,11 @@ public class SelectionManager : MonoBehaviour
         //eventually replace with leveling up instead of replacing with a selected tower
         selectedTower = Upgrade;
         selectedTowerGhost = Upgrade;
+    }
+    public void switchDestroy()
+    {
+        selectedTower = DestroyT;
+        selectedTowerGhost = DestroyT;
     }
     public void spawnPawn()
     {

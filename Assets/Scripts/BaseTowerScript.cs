@@ -8,7 +8,7 @@ public class BaseTowerScript : MonoBehaviour
     protected bool highlighted;
     public GameObject selectionManager;
     protected GameObject towerGhost = null;
-    public GameObject upgradeTower;
+    public GameObject upgradeTower, destroyTower;
 
     public virtual void OnMouseOver()
     {

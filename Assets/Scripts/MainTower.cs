@@ -30,6 +30,10 @@ public class MainTower : BaseTowerScript
 
     public override void OnMouseOver()
     {
+        if (selectionManager.GetComponent<SelectionManager>().selectedTower == destroyTower)
+        {
+            highlighted = true;
+        }
         if (level < 3)
         {
             if (selectionManager.GetComponent<SelectionManager>().selectedTower == upgradeTower)
@@ -49,6 +53,12 @@ public class MainTower : BaseTowerScript
         {
             level += 1;
             UpgradeFunction();
+            highlighted = false;
+            Destroy(towerGhost);
+        }
+        else if (highlighted && selectionManager.GetComponent<SelectionManager>().selectedTower == destroyTower)
+        {
+            hp = 0;
             highlighted = false;
             Destroy(towerGhost);
         }

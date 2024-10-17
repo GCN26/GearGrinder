@@ -52,8 +52,11 @@ MonoBehaviour:
   ResourceTower: {fileID: 1427219584235204291, guid: 241b3dd1634bb4c4c96bd43e02ad4623, type: 3}
   ResourceGhost: {fileID: 6834582177220042181, guid: 8c59cf818b8bb2642ac9df2c4ce7564a, type: 3}
   Upgrade: {fileID: 7576827141589382899, guid: d1df7053d5785254589c1a9a66664fc7, type: 3}
+  DestroyT: {fileID: 681868586150234804, guid: e9abfdaa57dec26408d4582118f62dd4, type: 3}
   AttackTower2: {fileID: 7642912136791913499, guid: 4b68972425762e24bbb938eb34e85a44, type: 3}
   AttackGhost2: {fileID: 8652408074924574060, guid: 0b42a3a055fc6ed4da6a92315932b5c4, type: 3}
   pawn: {fileID: 9177491289401539034, guid: 092a0ca40cbeb6243ae71ffb8e09fec3, type: 3}
   shield: {fileID: 8322795654611704023, guid: 15cec21f7d6f7084db708bfb26153cf2, type: 3}
+  node1: {fileID: 0}
+  node2: {fileID: 0}
   money: 1000
