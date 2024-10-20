@@ -1,12 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MainTower : BaseTowerScript
 {
     public int level = 0;
-    public int hp;
-    public int maxHP = 10;
+    public float hp;
+    public float maxHP = 10;
+
+    public bool buffed;
+    public bool leeched = false;
+
+    public Slider hpSlider;
 
     public virtual void Start()
     {
@@ -25,6 +31,12 @@ public class MainTower : BaseTowerScript
             highlighted = false;
             Destroy(towerGhost);
             Destroy(gameObject);
+        }
+        hpSlider.value = hp / maxHP;
+        if (leeched)
+        {
+            //stop all other functions, disallow upgrades and destruction, and sap hp at 1 per second
+            hp -= Time.deltaTime;
         }
     }
 

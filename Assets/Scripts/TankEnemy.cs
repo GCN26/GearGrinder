@@ -2,7 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TankEnemy : MonoBehaviour
+public class TankEnemy : BaseEnemyScript
 {
-    //just like pawn only slower, more hp, and an instakill if it reaches the end
+    public override void Start()
+    {
+        maxHP = 300;
+        base.Start();
+    }
 }

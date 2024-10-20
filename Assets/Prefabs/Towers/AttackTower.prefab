@@ -24,7 +24,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 690892439687475920}
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -32,11 +32,11 @@ RectTransform:
   - {fileID: 5837320829940436912}
   - {fileID: 892022253389552636}
   m_Father: {fileID: 5870702434114172494}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.249, y: 0}
-  m_SizeDelta: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: -0.025}
+  m_SizeDelta: {x: 1, y: 0.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &6088309497758984406
 MonoBehaviour:
@@ -102,7 +102,7 @@ GameObject:
   - component: {fileID: -2267692382404035655}
   m_Layer: 0
   m_Name: AttackTower
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -145,8 +145,13 @@ MonoBehaviour:
   level: 1
   hp: 0
   maxHP: 10
+  buffed: 0
+  leeched: 0
+  hpSlider: {fileID: 6088309497758984406}
   attackTimer: 0
   attackTimerTarget: 1.5
+  attackTimerTargetBuffed: 0.75
+  attackTimerTargetSet: 1.5
   targets: []
   searchRadius: {fileID: 8212405777875111691}
   head: {fileID: 6097122830155533655}
@@ -166,7 +171,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2

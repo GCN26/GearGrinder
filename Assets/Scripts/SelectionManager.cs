@@ -7,57 +7,30 @@ public class SelectionManager : MonoBehaviour
 {
     public GameObject selectedTower, selectedTowerGhost;
     public GameObject baseGrid;
-    public GameObject AttackTower, AttackGhost, ResourceTower, ResourceGhost, Upgrade, DestroyT;
-    public GameObject AttackTower2, AttackGhost2;
 
-    public GameObject pawn, shield;
+    public GameObject pawn, shield, leech, tank;
 
     public AmNode node1, node2;
     
 
     public int money;
 
-    //these switch functions should be replaced with a function that asks for a variable to switch to that tower
-    public void switchAttack()
+    public void switchTower(GameObject tower)
     {
-        selectedTower = AttackTower;
-        selectedTowerGhost = AttackGhost;
+        selectedTower = tower;
     }
-    public void switchAttack2()
+    public void switchGhost(GameObject ghost)
     {
-        selectedTower = AttackTower2;
-        selectedTowerGhost = AttackGhost2;
+        selectedTowerGhost = ghost;
     }
-    public void switchResource()
-    {
-        selectedTower = ResourceTower;
-        selectedTowerGhost = ResourceGhost;
-    }
-    public void switchUpgrade()
-    {
-        //eventually replace with leveling up instead of replacing with a selected tower
-        selectedTower = Upgrade;
-        selectedTowerGhost = Upgrade;
-    }
-    public void switchDestroy()
-    {
-        selectedTower = DestroyT;
-        selectedTowerGhost = DestroyT;
-    }
-    public void spawnPawn()
+    public void spawnEnemy(GameObject enemy)
     {
         GameObject spawn;
-        spawn = Instantiate(pawn, new Vector3(-2, 7, 0), transform.rotation);
-        spawn.name = "Pawn";
-        AmNode[] nodes = { node1, node2 };
-        spawn.GetComponent<BaseEnemyScript>().nodes = nodes;
-
-    }
-    public void spawnShield()
-    {
-        GameObject spawn;
-        spawn = Instantiate(shield, new Vector3(-2, 7, 0), transform.rotation);
-        spawn.name = "Shield";
+        spawn = Instantiate(enemy, new Vector3(-2, 7, 0), transform.rotation);
+        if(enemy == pawn) spawn.name = "Pawn";
+        else if (enemy == shield) spawn.name = "Shield";
+        else if (enemy == leech) spawn.name = "Leech";
+        else if (enemy == tank) spawn.name = "Tank";
         AmNode[] nodes = { node1, node2 };
         spawn.GetComponent<BaseEnemyScript>().nodes = nodes;
     }

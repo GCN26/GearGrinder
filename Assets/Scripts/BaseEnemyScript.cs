@@ -15,6 +15,8 @@ public class BaseEnemyScript : MonoBehaviour
     public Slider hpSlider;
     public Slider shieldSlider;
 
+    public GameObject enemyObject;
+
     public AmNode[] nodes;
     int currentNode = 0;
     public float speed;
