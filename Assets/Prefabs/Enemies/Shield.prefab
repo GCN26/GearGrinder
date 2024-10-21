@@ -833,7 +833,7 @@ MonoBehaviour:
   enemyObject: {fileID: 9099679085461922774}
   nodes: []
   speed: 1
-  tolerance: 1
+  tolerance: 0.01
   manager: {fileID: 0}
   shield: {fileID: 4516122087040291799}
   shieldTimer: 0

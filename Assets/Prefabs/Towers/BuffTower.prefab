@@ -654,6 +654,7 @@ MonoBehaviour:
   towers: []
   dieTimer: 0
   dieTarget: 1
+  buffCircle: {fileID: 155363623949971994}
 --- !u!1 &8331239027553546734
 GameObject:
   m_ObjectHideFlags: 0

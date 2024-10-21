@@ -52,7 +52,14 @@ public class LeechEnemy : BaseEnemyScript
                     preferedTowers.RemoveAt(i);
                 }
             }
-            searchTimer += Time.deltaTime;
+            if (towers.Count > 0)
+            {
+                searchTimer += Time.deltaTime;
+            }
+            else
+            {
+                searchTimer = 0;
+            }
             if (searchTimer >= searchTimerTarget && towers.Count > 0 && preferedTowers.Count == 0)
             {
                 if (jumpSelect == false)

@@ -419,11 +419,11 @@ MonoBehaviour:
   enemyObject: {fileID: 132394280591393227}
   nodes: []
   speed: 1.75
-  tolerance: 1
+  tolerance: 0.01
   manager: {fileID: 0}
   searchRadius: {fileID: 9175724362475578511}
   searchTimer: 0
-  searchTimerTarget: 10
+  searchTimerTarget: 5
   towers: []
   preferedTowers: []
   friend: {fileID: 0}

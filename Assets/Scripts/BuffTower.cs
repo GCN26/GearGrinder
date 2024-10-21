@@ -8,26 +8,34 @@ public class BuffTower : MainTower
     public List<GameObject> towers;
     public float dieTimer = 0;
     public float dieTarget = 1;
+    public GameObject buffCircle;
 
     public override void Update()
     {
         base.Update();
 
-        //if not leeched
-        dieTimer += Time.deltaTime;
-
-        if(dieTimer >= dieTarget)
+        if (leeched != true)
         {
-            dieTimer = 0;
-            hp -= 1;
-        }
+            dieTimer += Time.deltaTime;
+            buffCircle.SetActive(true);
 
-        for (int i = 0; i < towers.Count; i++)
-        {
-            if (towers[i] == null)
+            if (dieTimer >= dieTarget)
             {
-                towers.RemoveAt(i);
+                dieTimer = 0;
+                hp -= 1;
             }
+
+            for (int i = 0; i < towers.Count; i++)
+            {
+                if (towers[i] == null)
+                {
+                    towers.RemoveAt(i);
+                }
+            }
+        }
+        else
+        {
+            buffCircle.SetActive(false);
         }
     }
 }

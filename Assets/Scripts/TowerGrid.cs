@@ -27,6 +27,7 @@ public class TowerGrid : BaseTowerScript
         {
             tower = Instantiate(selectionManager.GetComponent<SelectionManager>().selectedTower,transform.position, transform.rotation);
             tower.name = this.name;
+            tower.transform.localScale = this.transform.localScale;
             tower.GetComponent<BaseTowerScript>().selectionManager = selectionManager;
             highlighted = false;
             Destroy(towerGhost);

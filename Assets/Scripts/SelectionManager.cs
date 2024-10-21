@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,10 +11,16 @@ public class SelectionManager : MonoBehaviour
 
     public GameObject pawn, shield, leech, tank;
 
-    public AmNode node1, node2;
+    public AmNode[] nodes = { };
+    public TextMeshProUGUI moneyCounter;
     
 
     public int money;
+
+    public void Update()
+    {
+        moneyCounter.text = "$" + money;
+    }
 
     public void switchTower(GameObject tower)
     {
@@ -31,7 +38,6 @@ public class SelectionManager : MonoBehaviour
         else if (enemy == shield) spawn.name = "Shield";
         else if (enemy == leech) spawn.name = "Leech";
         else if (enemy == tank) spawn.name = "Tank";
-        AmNode[] nodes = { node1, node2 };
         spawn.GetComponent<BaseEnemyScript>().nodes = nodes;
     }
 }

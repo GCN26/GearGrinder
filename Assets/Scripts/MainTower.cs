@@ -26,6 +26,7 @@ public class MainTower : BaseTowerScript
         {
             GameObject grid;
             grid = Instantiate(selectionManager.GetComponent<SelectionManager>().baseGrid, transform.position, transform.rotation);
+            grid.transform.localScale = this.transform.localScale;
             grid.name = this.name;
             grid.GetComponent<BaseTowerScript>().selectionManager = selectionManager;
             highlighted = false;

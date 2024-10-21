@@ -40,6 +40,7 @@ public class BaseTowerScript : MonoBehaviour
             {
                 towerGhost = Instantiate(selectionManager.GetComponent<SelectionManager>().selectedTowerGhost, transform.position, transform.rotation);
                 towerGhost.name = "Ghost" + this.name;
+                towerGhost.transform.localScale = this.transform.localScale;
             }
         }
         if (highlighted == false)

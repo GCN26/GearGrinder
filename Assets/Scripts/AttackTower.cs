@@ -28,18 +28,21 @@ public class AttackTower : MainTower
             attackTimerTargetSet = attackTimerTarget;
         }
 
-        if (targets.Count > 0)
+        if (leeched != true)
         {
-            attackTimer += Time.deltaTime;
-            //rotate head to face target
-        }
-        else attackTimer = 0;
+            if (targets.Count > 0)
+            {
+                attackTimer += Time.deltaTime;
+                //rotate head to face target
+            }
+            else attackTimer = 0;
 
-        if(attackTimer >= attackTimerTargetSet)
-        {
-            attackTimer = 0;
-            targets[0].GetComponent<BaseEnemyScript>().Damaged(damage);
-            hp -= 1;
+            if (attackTimer >= attackTimerTargetSet)
+            {
+                attackTimer = 0;
+                targets[0].GetComponent<BaseEnemyScript>().Damaged(damage);
+                hp -= 1;
+            }
         }
 
         for(int i = 0;i< targets.Count; i++)

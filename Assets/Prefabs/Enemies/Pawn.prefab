@@ -835,5 +835,5 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   speed: 1
-  tolerance: 1
+  tolerance: 0.01
   manager: {fileID: 0}

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ResourceTower : MainTower
 {
@@ -10,6 +11,8 @@ public class ResourceTower : MainTower
     public float gatherTimerTargetSet = 5;
 
     public int moneyPerHarvest = 50;
+
+    public Slider gatherSlider;
     //money per harvest values subject to change
 
     public override void Update()
@@ -25,13 +28,20 @@ public class ResourceTower : MainTower
             gatherTimerTargetSet = gatherTimerTarget;
         }
 
-        //if not leeched
-        gatherTimer += Time.deltaTime;
-        if(gatherTimer >= gatherTimerTargetSet)
+        if (leeched != true)
         {
-            gatherTimer = 0;
-            selectionManager.GetComponent<SelectionManager>().money += moneyPerHarvest;
-            hp -= 1;
+            gatherTimer += Time.deltaTime;
+            gatherSlider.value = gatherTimer / gatherTimerTargetSet;
+            if (gatherTimer >= gatherTimerTargetSet)
+            {
+                gatherTimer = 0;
+                selectionManager.GetComponent<SelectionManager>().money += moneyPerHarvest;
+                hp -= 1;
+            }
+        }
+        else
+        {
+
         }
     }
     public override void UpgradeFunction()
