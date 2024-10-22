@@ -7,12 +7,15 @@ public class LeechRadius : MonoBehaviour
     public GameObject leech;
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Tower"))
+        if (leech.GetComponent<LeechEnemy>().jumpSelect == false)
         {
-            leech.GetComponent<LeechEnemy>().towers.Add(other.gameObject);
-            if (other.GetComponent<ResourceTower>() || other.GetComponent<BuffTower>())
+            if (other.CompareTag("Tower") && other.GetComponent<MainTower>().leeched == false && other.GetComponent<MainTower>().leechTarget == false)
             {
-                leech.GetComponent<LeechEnemy>().preferedTowers.Add(other.gameObject);
+                leech.GetComponent<LeechEnemy>().towers.Add(other.gameObject);
+                if (other.GetComponent<ResourceTower>() || other.GetComponent<BuffTower>())
+                {
+                    leech.GetComponent<LeechEnemy>().preferedTowers.Add(other.gameObject);
+                }
             }
         }
     }

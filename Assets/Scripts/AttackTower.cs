@@ -41,7 +41,8 @@ public class AttackTower : MainTower
             {
                 attackTimer = 0;
                 targets[0].GetComponent<BaseEnemyScript>().Damaged(damage);
-                hp -= 1;
+                Debug.Log(targets[0].name + " goes boom");
+                if(targets[0].GetComponent<BaseEnemyScript>().invulnerable == false) hp -= 1;
             }
         }
 

@@ -6,7 +6,7 @@ public class PawnEnemy : BaseEnemyScript
 {
     public override void Start()
     {
-        maxHP = 3;
+        maxHP = 5;
         base.Start();
     }
 }

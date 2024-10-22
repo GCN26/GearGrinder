@@ -19,14 +19,18 @@ public class ShieldEnemy : PawnEnemy
     }
     public override void Damaged(float damage)
     {
-        //if shield is down
-        if(shield.activeSelf == false) {
-            base.Damaged(damage);
-        }
-        else
+        if (invulnerable == false)
         {
-            shieldHP -= damage;
-            shieldTimer = 0;
+            //if shield is down
+            if (shield.activeSelf == false)
+            {
+                base.Damaged(damage);
+            }
+            else
+            {
+                shieldHP -= damage;
+                shieldTimer = 0;
+            }
         }
         //else if shield is up
         //deal damage to shield

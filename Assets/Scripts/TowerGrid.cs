@@ -9,6 +9,7 @@ public class TowerGrid : BaseTowerScript
 
     private void Start()
     {
+        this.name = "Grid" + this.transform.position.x + this.transform.position.y;
         transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.y * .1f);
     }
     public override void OnMouseOver()

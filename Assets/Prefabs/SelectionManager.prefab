@@ -53,6 +53,11 @@ MonoBehaviour:
   leech: {fileID: 1358630889689908724, guid: e6dab2c0189fa49439dcf8da2b4c75f2, type: 3}
   tank: {fileID: 7322007665079694470, guid: c84055fbbc4c7374f81e0ce64db777bf, type: 3}
   nodes: []
+  hpDisplay: []
   moneyCounter: {fileID: 0}
   hp: 5
   money: 1000
+  spawnTimer: 0
+  spawnTarget: 1.5
+  increaseTimer: 0
+  increaseTarget: 0

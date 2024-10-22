@@ -167,11 +167,12 @@ MonoBehaviour:
   maxHP: 10
   buffed: 0
   leeched: 0
+  leechTarget: 0
   hpSlider: {fileID: 1464680563266235093}
   gatherTimer: 0
-  gatherTimerTarget: 5
-  gatherTimerTargetBuffed: 2.5
-  gatherTimerTargetSet: 5
+  gatherTimerTarget: 8
+  gatherTimerTargetBuffed: 4
+  gatherTimerTargetSet: 8
   moneyPerHarvest: 50
   gatherSlider: {fileID: 4520404801470797948}
 --- !u!61 &2288441760003772482

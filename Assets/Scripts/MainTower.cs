@@ -11,6 +11,7 @@ public class MainTower : BaseTowerScript
 
     public bool buffed;
     public bool leeched = false;
+    public bool leechTarget = false;
 
     public Slider hpSlider;
 

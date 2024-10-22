@@ -69,6 +69,7 @@ public class LeechEnemy : BaseEnemyScript
                 }
                 speed = 0;
                 jumpTimer += Time.deltaTime;
+                towers[0].GetComponent<MainTower>().leechTarget = true;
                 if (jumpTimer >= jumpTimerTarget)
                 {
 
@@ -83,6 +84,7 @@ public class LeechEnemy : BaseEnemyScript
                     jumpDist = Vector3.Distance(this.transform.position, preferedTowers[0].transform.position);
                 }
                 speed = 0;
+                preferedTowers[0].GetComponent<MainTower>().leechTarget = true;
                 jumpTimer += Time.deltaTime;
                 if (jumpTimer >= jumpTimerTarget)
                 {

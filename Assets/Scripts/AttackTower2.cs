@@ -59,7 +59,8 @@ public class AttackTower2 : MainTower
                 zapShowTimer = 0;
                 for (int i = 0; i < targets.Count; i++)
                 {
-                    targets[0].GetComponent<BaseEnemyScript>().Damaged(damage);
+                    targets[i].GetComponent<BaseEnemyScript>().Damaged(damage);
+                    Debug.Log(targets[i].name + " goes zap");
                 }
                 hp -= 1;
 

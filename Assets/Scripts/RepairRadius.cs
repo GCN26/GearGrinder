@@ -10,8 +10,9 @@ public class RepairRadius : MonoBehaviour
         {
             other.GetComponent<MainTower>().FullHeal();
             other.GetComponent<MainTower>().leeched = false;
+            other.GetComponent<MainTower>().leechTarget = false;
         }
-        if (other.CompareTag("ActiveLeech"))
+        if (other.CompareTag("ActiveLeech")|| other.CompareTag("InactiveLeech"))
         {
             other.GetComponent<BaseEnemyScript>().hp = 0;
         }

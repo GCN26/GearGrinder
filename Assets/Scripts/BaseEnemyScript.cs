@@ -24,13 +24,23 @@ public class BaseEnemyScript : MonoBehaviour
 
     public GameObject manager;
 
+    public float invulnTimer;
+    public bool invulnerable;
+
     public virtual void Start()
     {
         hp = maxHP;
+        invulnTimer = 0;
+        invulnerable = true;
     }
 
     public virtual void Update()
     {
+        invulnTimer += Time.deltaTime;
+        if(invulnTimer > 2.5f)
+        {
+            invulnerable = false;
+        }
         PathFunction();
         if(hp <= 0)
         {
@@ -56,7 +66,10 @@ public class BaseEnemyScript : MonoBehaviour
     }
     public virtual void Damaged(float damage)
     {
-        hp -= damage;
+        if (invulnerable == false)
+        {
+            hp -= damage;
+        }
     }
     
 }

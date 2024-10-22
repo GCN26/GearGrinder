@@ -775,6 +775,7 @@ MonoBehaviour:
   maxHP: 10
   buffed: 0
   leeched: 0
+  leechTarget: 0
   hpSlider: {fileID: 7631459075703229369}
   attackTimer: 0
   attackTimerTarget: 3
@@ -799,10 +800,10 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2

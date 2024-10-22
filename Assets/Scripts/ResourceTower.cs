@@ -6,9 +6,9 @@ using UnityEngine.UI;
 public class ResourceTower : MainTower
 {
     public float gatherTimer;
-    public float gatherTimerTarget = 5;
-    public float gatherTimerTargetBuffed = 2.5f;
-    public float gatherTimerTargetSet = 5;
+    public float gatherTimerTarget = 8;
+    public float gatherTimerTargetBuffed = 4f;
+    public float gatherTimerTargetSet = 8;
 
     public int moneyPerHarvest = 50;
 
@@ -36,7 +36,7 @@ public class ResourceTower : MainTower
             {
                 gatherTimer = 0;
                 selectionManager.GetComponent<SelectionManager>().money += moneyPerHarvest;
-                hp -= 1;
+                hp -= 2;
             }
         }
         else
@@ -48,7 +48,7 @@ public class ResourceTower : MainTower
     {
         if (level == 1)
         {
-            moneyPerHarvest = 50;
+            moneyPerHarvest = 75;
             maxHP = 10;
         }
         else if (level == 2)
@@ -58,7 +58,7 @@ public class ResourceTower : MainTower
         }
         else if (level == 3)
         {
-            moneyPerHarvest = 200;
+            moneyPerHarvest = 175;
             maxHP = 35;
         }
         base.UpgradeFunction();
