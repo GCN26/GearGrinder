@@ -25,13 +25,16 @@ public class TowerGrid : BaseTowerScript
         //no upgrades
         if (highlighted && selectionManager.GetComponent<SelectionManager>().selectedTower != upgradeTower && highlighted && selectionManager.GetComponent<SelectionManager>().selectedTower != destroyTower)
         {
-            tower = Instantiate(selectionManager.GetComponent<SelectionManager>().selectedTower,transform.position, transform.rotation);
-            tower.name = this.name;
-            tower.transform.localScale = this.transform.localScale;
-            tower.GetComponent<BaseTowerScript>().selectionManager = selectionManager;
-            highlighted = false;
-            Destroy(towerGhost);
-            Destroy(gameObject);
+            if (selectionManager.GetComponent<SelectionManager>().spend())
+            {
+                tower = Instantiate(selectionManager.GetComponent<SelectionManager>().selectedTower, transform.position, transform.rotation);
+                tower.name = this.name;
+                tower.transform.localScale = this.transform.localScale;
+                tower.GetComponent<BaseTowerScript>().selectionManager = selectionManager;
+                highlighted = false;
+                Destroy(towerGhost);
+                Destroy(gameObject);
+            }
         }
     }
 

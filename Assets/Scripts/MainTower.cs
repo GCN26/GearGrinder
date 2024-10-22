@@ -64,10 +64,13 @@ public class MainTower : BaseTowerScript
         //these values are subject to change
         if (highlighted && selectionManager.GetComponent<SelectionManager>().selectedTower == upgradeTower)
         {
-            level += 1;
-            UpgradeFunction();
-            highlighted = false;
-            Destroy(towerGhost);
+            if (selectionManager.GetComponent<SelectionManager>().spend())
+            {
+                level += 1;
+                UpgradeFunction();
+                highlighted = false;
+                Destroy(towerGhost);
+            }
         }
         else if (highlighted && selectionManager.GetComponent<SelectionManager>().selectedTower == destroyTower)
         {
