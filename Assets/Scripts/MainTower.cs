@@ -15,10 +15,20 @@ public class MainTower : BaseTowerScript
 
     public Slider hpSlider;
 
+    public GameObject towerTop;
+
+    public bool highlighted2;
+    public float z2;
+
+    public GameObject upgradeObj;
+    public Sprite upgrade1;
+    public Sprite upgrade2;
+
     public virtual void Start()
     {
         hp = maxHP;
         level = 1;
+        z2 = this.transform.position.z -2;
     }
     public override void Update()
     {
@@ -55,6 +65,14 @@ public class MainTower : BaseTowerScript
                 highlighted = true;
             }
         }
+        highlighted2 = true;
+        transform.position = new Vector3(transform.position.x, transform.position.y, z2);
+    }
+    public override void OnMouseExit()
+    {
+        base.OnMouseExit();
+        highlighted2 = false;
+        transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.y*.1f);
     }
 
     public override void OnMouseDown()

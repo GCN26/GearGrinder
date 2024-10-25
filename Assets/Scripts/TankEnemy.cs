@@ -6,7 +6,7 @@ public class TankEnemy : BaseEnemyScript
 {
     public override void Start()
     {
-        maxHP = 300;
+        maxHP = 500;
         base.Start();
     }
 }

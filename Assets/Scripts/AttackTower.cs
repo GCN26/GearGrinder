@@ -10,14 +10,25 @@ public class AttackTower : MainTower
     public float attackTimerTargetSet = 1.5f;
     public List<GameObject> targets;
     public GameObject searchRadius;
+    public GameObject displaySearch;
     public GameObject head;
     public float damage;
 
     //add values for damage - subject to change
-
+    public override void OnMouseOver()
+    {
+        base.OnMouseOver();
+        highlighted2 = true;
+    }
+    public override void OnMouseExit()
+    {
+        base.OnMouseExit();
+        highlighted2 = false;
+    }
     public override void Update()
     {
         base.Update();
+        displaySearch.SetActive(highlighted2);
 
         if (buffed)
         {
@@ -70,24 +81,30 @@ public class AttackTower : MainTower
             attackTimerTarget = 1.5f;
             attackTimerTargetBuffed = .75f;
             searchRadius.transform.localScale = new Vector3(5, 5, 1);
+            displaySearch.transform.localScale = new Vector3(5, 5, 1);
             maxHP = 10;
             damage = 1;
+            upgradeObj.GetComponent<SpriteRenderer>().sprite = null;
         }
         else if (level == 2)
         {
             attackTimerTarget = 1f;
             attackTimerTargetBuffed = .5f;
             searchRadius.transform.localScale = new Vector3(6, 6, 1);
+            displaySearch.transform.localScale = new Vector3(6, 6, 1);
             maxHP = 20;
             damage = 3;
+            upgradeObj.GetComponent<SpriteRenderer>().sprite = upgrade1;
         }
         else if (level == 3)
         {
-            attackTimerTarget = .5f;
-            attackTimerTargetBuffed = .25f;
+            attackTimerTarget = 1f;
+            attackTimerTargetBuffed = .5f;
             searchRadius.transform.localScale = new Vector3(7.5f, 7.5f, 1);
+            displaySearch.transform.localScale = new Vector3(7.5f, 7.5f, 1);
             maxHP = 35;
-            damage = 5;
+            damage = 3;
+            upgradeObj.GetComponent<SpriteRenderer>().sprite = upgrade2;
         }
         base.UpgradeFunction();
     }

@@ -9,11 +9,14 @@ public class PlayerHealth : MonoBehaviour
     {
         //if juggernaut, automatically set hp to 0
         //else, lower hp by 1
-        if (other.CompareTag("Enemy"))
+        if (manager.GetComponent<SelectionManager>().hp > 0)
         {
-            manager.GetComponent<SelectionManager>().hp -= 1;
-            Destroy(manager.GetComponent<SelectionManager>().hpDisplay[manager.GetComponent<SelectionManager>().hp]);
-            Destroy(other.gameObject);
+            if (other.CompareTag("Enemy"))
+            {
+                manager.GetComponent<SelectionManager>().hp -= 1;
+                Destroy(manager.GetComponent<SelectionManager>().hpDisplay[manager.GetComponent<SelectionManager>().hp]);
+                Destroy(other.gameObject);
+            }
         }
     }
 }

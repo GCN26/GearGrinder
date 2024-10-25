@@ -50,16 +50,19 @@ public class ResourceTower : MainTower
         {
             moneyPerHarvest = 75;
             maxHP = 10;
+            upgradeObj.GetComponent<SpriteRenderer>().sprite = null;
         }
         else if (level == 2)
         {
             moneyPerHarvest = 100;
             maxHP = 20;
+            upgradeObj.GetComponent<SpriteRenderer>().sprite = upgrade1;
         }
         else if (level == 3)
         {
             moneyPerHarvest = 175;
             maxHP = 35;
+            upgradeObj.GetComponent<SpriteRenderer>().sprite = upgrade2;
         }
         base.UpgradeFunction();
     }

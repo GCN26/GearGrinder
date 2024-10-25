@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedTower: {fileID: 1147796988440479097, guid: aa14186f9c84da348aeab7b613de2e44, type: 3}
   selectedTowerGhost: {fileID: 8652408074924574060, guid: 0b42a3a055fc6ed4da6a92315932b5c4, type: 3}
-  selectedCost: 150
+  selectedCost: 125
   baseGrid: {fileID: 4206729626706923250, guid: 8cbebd6700bfc3c4b815377be69715e6, type: 3}
   pawn: {fileID: 9177491289401539034, guid: 092a0ca40cbeb6243ae71ffb8e09fec3, type: 3}
   shield: {fileID: 8322795654611704023, guid: 15cec21f7d6f7084db708bfb26153cf2, type: 3}
@@ -61,3 +61,5 @@ MonoBehaviour:
   spawnTarget: 1.5
   increaseTimer: 0
   increaseTarget: 0
+  spawnBool: 0
+  i: 0

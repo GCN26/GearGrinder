@@ -8,14 +8,14 @@ public class AttackTowerRadius2 : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Enemy"))
+        if (other.CompareTag("Enemy") || other.CompareTag("InactiveLeech"))
         {
             towerParent.GetComponent<AttackTower2>().targets.Add(other.gameObject);
         }
     }
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Enemy") && other != null)
+        if (other.CompareTag("Enemy") || other.CompareTag("InactiveLeech") && other != null)
         {
             towerParent.GetComponent<AttackTower2>().targets.Remove(other.gameObject);
         }

@@ -10,6 +10,7 @@ public class AttackTower2 : MainTower
     public float attackTimerTargetSet = 3f;
     public List<GameObject> targets;
     public GameObject searchRadius;
+    public GameObject displaySearch;
     public GameObject head;
     public float damage;
 
@@ -17,14 +18,29 @@ public class AttackTower2 : MainTower
     public float zapShowTimer;
     public float zapShowTarget;
 
+    public Sprite inactive;
+    public Sprite active;
+
     public override void Start()
     {
         base.Start();
         zapCircle.SetActive(false);
+        displaySearch.SetActive(false);
+    }
+
+    public override void OnMouseOver()
+    {
+        base.OnMouseOver();
+    }
+    public override void OnMouseExit()
+    {
+        base.OnMouseExit();
     }
     public override void Update()
     {
         base.Update();
+
+        displaySearch.SetActive(highlighted2);
 
         if (buffed)
         {
@@ -39,10 +55,12 @@ public class AttackTower2 : MainTower
         {
             zapShowTimer += Time.deltaTime;
             zapCircle.SetActive(true);
+            towerTop.GetComponent<SpriteRenderer>().sprite = active;
         }
-        else zapCircle.SetActive(false);
+        else
         {
-            
+            zapCircle.SetActive(false);
+            towerTop.GetComponent<SpriteRenderer>().sprite = inactive;
         }
         if (leeched != true)
         {
@@ -91,27 +109,33 @@ public class AttackTower2 : MainTower
             attackTimerTarget = 3f;
             attackTimerTargetBuffed = 1.5f;
             searchRadius.transform.localScale = new Vector3(5, 5, 1);
+            displaySearch.transform.localScale = new Vector3(5, 5, 1);
             zapCircle.transform.localScale = new Vector3(5, 5, 1);
             maxHP = 10;
             damage = 1;
+            upgradeObj.GetComponent<SpriteRenderer>().sprite = null;
         }
         else if (level == 2)
         {
             attackTimerTarget = 2f;
             attackTimerTargetBuffed = 1f;
             searchRadius.transform.localScale = new Vector3(6, 6, 1);
+            displaySearch.transform.localScale = new Vector3(6, 6, 1);
             zapCircle.transform.localScale = new Vector3(6, 6, 1);
             maxHP = 20;
             damage = 3;
+            upgradeObj.GetComponent<SpriteRenderer>().sprite = upgrade1;
         }
         else if (level == 3)
         {
             attackTimerTarget = 1f;
             attackTimerTargetBuffed = .5f;
             searchRadius.transform.localScale = new Vector3(7.5f, 7.5f, 1);
+            displaySearch.transform.localScale = new Vector3(7.5f, 7.5f, 1);
             zapCircle.transform.localScale = new Vector3(7.5f, 7.5f, 1);
             maxHP = 35;
             damage = 5;
+            upgradeObj.GetComponent<SpriteRenderer>().sprite = upgrade2;
         }
         base.UpgradeFunction();
     }

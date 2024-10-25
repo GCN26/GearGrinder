@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
-using UnityEditor.Search;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
@@ -29,7 +28,7 @@ public class LeechEnemy : BaseEnemyScript
     //If none exist, it simply moves towards the end
     public override void Start()
     {
-        maxHP = 3;
+        maxHP = 10;
         base.Start();
     }
     public override void Update()
@@ -129,7 +128,7 @@ public class LeechEnemy : BaseEnemyScript
         if (Vector3.Distance(targetPosition, this.transform.position) < .25)
         {
             speedJump = 0;
-            this.transform.position = new Vector3(friend.transform.position.x, friend.transform.position.y, friend.transform.position.z-1f);
+            this.transform.position = new Vector3(friend.transform.position.x, friend.transform.position.y, friend.transform.position.z-.105f);
             friend.GetComponent<MainTower>().leeched = true;
             activeLeech = true;
         }

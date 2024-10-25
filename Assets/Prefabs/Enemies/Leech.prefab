@@ -263,7 +263,7 @@ GameObject:
   - component: {fileID: 5790693741443944708}
   m_Layer: 3
   m_Name: Leech
-  m_TagString: InactiveLeech
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -421,6 +421,8 @@ MonoBehaviour:
   speed: 1.75
   tolerance: 0.01
   manager: {fileID: 0}
+  invulnTimer: 0
+  invulnerable: 0
   searchRadius: {fileID: 9175724362475578511}
   searchTimer: 0
   searchTimerTarget: 5
