@@ -11,12 +11,23 @@ public class PlayerHealth : MonoBehaviour
         //else, lower hp by 1
         if (manager.GetComponent<SelectionManager>().hp > 0)
         {
-            if (other.CompareTag("Enemy"))
+            if (other.name == "Tank")
+            {
+                for (int i = manager.GetComponent<SelectionManager>().hp; i > 0; i--)
+                {
+                    Destroy(manager.GetComponent<SelectionManager>().hpDisplay[i-1]);
+                }
+                manager.GetComponent<SelectionManager>().hp = 0;
+
+                Destroy(other.gameObject);
+            }
+            else if (other.CompareTag("Enemy"))
             {
                 manager.GetComponent<SelectionManager>().hp -= 1;
                 Destroy(manager.GetComponent<SelectionManager>().hpDisplay[manager.GetComponent<SelectionManager>().hp]);
                 Destroy(other.gameObject);
             }
+            
         }
     }
 }
