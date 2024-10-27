@@ -131,7 +131,7 @@ public class SelectionManager : MonoBehaviour
         }
         else
         {
-            spawnPos = new Vector3(-9.98f, -1.72f, 0);
+            spawnPos = new Vector3(-11.98f, -1.72f, 0);
         }
 
         spawn = Instantiate(enemy, spawnPos, transform.rotation);

@@ -423,6 +423,9 @@ MonoBehaviour:
   manager: {fileID: 0}
   invulnTimer: 0
   invulnerable: 0
+  spr0: {fileID: 21300000, guid: 7dfede2817373d541a676088c070f1bc, type: 3}
+  spr90: {fileID: 21300000, guid: 7dfede2817373d541a676088c070f1bc, type: 3}
+  spr180: {fileID: 21300000, guid: 7dfede2817373d541a676088c070f1bc, type: 3}
   searchRadius: {fileID: 9175724362475578511}
   searchTimer: 0
   searchTimerTarget: 5

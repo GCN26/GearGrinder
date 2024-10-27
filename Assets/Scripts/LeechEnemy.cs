@@ -71,7 +71,6 @@ public class LeechEnemy : BaseEnemyScript
                 towers[0].GetComponent<MainTower>().leechTarget = true;
                 if (jumpTimer >= jumpTimerTarget)
                 {
-
                     JumpFunction(towers[0]);
                 }
             }
@@ -104,8 +103,34 @@ public class LeechEnemy : BaseEnemyScript
             }
         }
     }
+
+    public void SelfRotate(GameObject target)
+    {
+        float extraRotate = 0;
+        if(target.transform.position.x - enemyObject.transform.position.x > 0)
+        {
+            //if tower is on the right of leech
+            extraRotate = 90;
+        }
+        else if (target.transform.position.x - enemyObject.transform.position.x < 0)
+        {
+            //if tower is on the left of leech
+            extraRotate = -90;
+        }
+        Vector3 enemyPos = target.transform.position;
+        enemyPos.z = enemyObject.transform.position.z;
+
+        Vector3 handToMouse = enemyPos - enemyObject.transform.position;
+        enemyObject.transform.right = handToMouse;
+
+        Vector3 localRotation = enemyObject.transform.localEulerAngles;
+        localRotation.z = localRotation.z + extraRotate;
+        localRotation.x = 0;
+        enemyObject.transform.localEulerAngles = localRotation;
+    }
     public void JumpFunction(GameObject tower)
     {
+        SelfRotate(tower);
         //Add visuals for the jump using Moveable
         if (activeLeech == false)
         {
@@ -131,6 +156,26 @@ public class LeechEnemy : BaseEnemyScript
             this.transform.position = new Vector3(friend.transform.position.x, friend.transform.position.y, friend.transform.position.z-.105f);
             friend.GetComponent<MainTower>().leeched = true;
             activeLeech = true;
+        }
+    }
+
+    public override void PathFunction()
+    {
+        Vector3 targetPosition = nodes[currentNode].transform.position;
+        Vector3 direction = targetPosition - this.transform.position;
+        direction = direction.normalized;
+
+        this.transform.position += direction * speed * Time.deltaTime;
+
+        if (Vector3.Distance(targetPosition, this.transform.position) < tolerance)
+        {
+            currentNode = currentNode + 1;
+            currentNode = currentNode % nodes.Length;
+            enemyObject.transform.eulerAngles = new Vector3(
+                enemyObject.transform.eulerAngles.x,
+                enemyObject.transform.eulerAngles.y,
+                rotateTo
+                );
         }
     }
 

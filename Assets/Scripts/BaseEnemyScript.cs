@@ -18,7 +18,7 @@ public class BaseEnemyScript : MonoBehaviour
     public GameObject enemyObject;
 
     public AmNode[] nodes;
-    int currentNode = 0;
+    public int currentNode = 0;
     public float speed;
     public float tolerance;
 
@@ -26,6 +26,11 @@ public class BaseEnemyScript : MonoBehaviour
 
     public float invulnTimer;
     public bool invulnerable;
+
+    public Sprite spr0;
+    public Sprite spr90;
+    public Sprite spr180;
+    public float rotateTo;
 
     public virtual void Start()
     {
@@ -62,6 +67,9 @@ public class BaseEnemyScript : MonoBehaviour
         {
             currentNode = currentNode + 1;
             currentNode = currentNode % nodes.Length;
+            if (rotateTo == 0) enemyObject.GetComponent<SpriteRenderer>().sprite = spr0;
+            else if (rotateTo == 90) enemyObject.GetComponent<SpriteRenderer>().sprite = spr90;
+            else if (rotateTo == 180) enemyObject.GetComponent<SpriteRenderer>().sprite = spr180;
         }
     }
     public virtual void Damaged(float damage)

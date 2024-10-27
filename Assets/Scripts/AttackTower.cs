@@ -44,6 +44,7 @@ public class AttackTower : MainTower
             if (targets.Count > 0)
             {
                 attackTimer += Time.deltaTime;
+                BarrelRotate(targets[0]);
                 //rotate head to face target
             }
             else attackTimer = 0;
@@ -69,6 +70,20 @@ public class AttackTower : MainTower
             }
         }
     }
+
+    public void BarrelRotate(GameObject target)
+    {
+        Vector3 enemyPos = target.transform.position;
+        enemyPos.z = head.transform.position.z;
+
+        Vector3 handToMouse =  enemyPos - head.transform.position;
+        head.transform.right = handToMouse;
+
+        Vector3 localRotation = head.transform.localEulerAngles;
+        localRotation.x = 0;
+        head.transform.localEulerAngles = localRotation;
+    }
+
     private void OnDestroy()
     {
         targets = null;
