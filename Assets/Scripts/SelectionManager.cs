@@ -140,6 +140,8 @@ public class SelectionManager : MonoBehaviour
         else if (enemy == leech) spawn.name = "Leech";
         else if (enemy == tank) spawn.name = "Tank";
 
+        spawn.GetComponent<BaseEnemyScript>().manager = this.gameObject;
+
         if (spawnOE == false) spawn.GetComponent<BaseEnemyScript>().nodes = nodes;
         else spawn.GetComponent<BaseEnemyScript>().nodes = nodes2;
 
