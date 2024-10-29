@@ -5,9 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class MenuScript : MonoBehaviour
 {
+    public GameObject subPanel;
+    public GameObject subButton;
+    public GameObject ctrlText;
+    public GameObject ctrlTitle;
+    public GameObject credText;
+    public GameObject credTitle;
+
     public void Start()
     {
         Screen.SetResolution(1920, 1080, true);
+        Time.timeScale = 1;
     }
     public void PlayButton()
     {
@@ -15,18 +23,37 @@ public class MenuScript : MonoBehaviour
     }
     public void textButton(string buttonType)
     {
+        subPanel.SetActive(true);
+        subButton.SetActive(true);
         if (buttonType == "Credits")
         {
             //display credits
+            ctrlText.SetActive(false);
+            ctrlTitle.SetActive(false);
+            credText.SetActive(true);
+            credTitle.SetActive(true);
         }
         else if (buttonType == "Controls")
         {
-            //display controls
-            //use images
+            ctrlText.SetActive(true);
+            ctrlTitle.SetActive(true);
+            credText.SetActive(false);
+            credTitle.SetActive(false);
         }
     }
     public void QuitButton()
     {
         //close the game
+    }
+
+    public void CloseSubMenu()
+    {
+        //set submenu panel and all text objects to inactive
+        subButton.SetActive(false);
+        ctrlText.SetActive(false);
+        ctrlTitle.SetActive(false);
+        credText.SetActive(false);
+        credTitle.SetActive(false);
+        subPanel.SetActive(false);
     }
 }
