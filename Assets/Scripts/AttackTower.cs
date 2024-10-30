@@ -14,6 +14,12 @@ public class AttackTower : MainTower
     public GameObject head;
     public float damage;
 
+    public AudioClip soundFire;
+
+    public override void Start()
+    {
+        base.Start();
+    }
     //add values for damage - subject to change
     public override void OnMouseOver()
     {
@@ -45,7 +51,6 @@ public class AttackTower : MainTower
             {
                 attackTimer += Time.deltaTime;
                 BarrelRotate(targets[0]);
-                //rotate head to face target
             }
             else attackTimer = 0;
 
@@ -53,7 +58,7 @@ public class AttackTower : MainTower
             {
                 attackTimer = 0;
                 targets[0].GetComponent<BaseEnemyScript>().Damaged(damage);
-                Debug.Log(targets[0].name + " goes boom");
+                sound.PlayOneShot(soundFire,0.75f);
                 if(targets[0].GetComponent<BaseEnemyScript>().invulnerable == false) hp -= 1;
             }
         }

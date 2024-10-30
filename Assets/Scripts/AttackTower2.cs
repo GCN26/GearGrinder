@@ -21,6 +21,8 @@ public class AttackTower2 : MainTower
     public Sprite inactive;
     public Sprite active;
 
+    public AudioClip soundFire;
+
     public override void Start()
     {
         base.Start();
@@ -78,7 +80,7 @@ public class AttackTower2 : MainTower
                 for (int i = 0; i < targets.Count; i++)
                 {
                     targets[i].GetComponent<BaseEnemyScript>().Damaged(damage);
-                    Debug.Log(targets[i].name + " goes zap");
+                    sound.PlayOneShot(soundFire, 0.75f);
                 }
                 hp -= 1;
 

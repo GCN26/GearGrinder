@@ -6,14 +6,14 @@ using UnityEngine.UI;
 public class ResourceTower : MainTower
 {
     public float gatherTimer;
-    public float gatherTimerTarget = 8;
-    public float gatherTimerTargetBuffed = 4f;
-    public float gatherTimerTargetSet = 8;
+    public float gatherTimerTarget = 4.5f;
+    public float gatherTimerTargetBuffed = 3f;
+    public float gatherTimerTargetSet = 4.5f;
 
     public int moneyPerHarvest = 50;
 
     public Slider gatherSlider;
-    //money per harvest values subject to change
+    public AudioClip gatherSound;
 
     public override void Update()
     {
@@ -36,6 +36,7 @@ public class ResourceTower : MainTower
             {
                 gatherTimer = 0;
                 selectionManager.GetComponent<SelectionManager>().money += moneyPerHarvest;
+                sound.PlayOneShot(gatherSound, 0.75f);
                 hp -= 2;
             }
         }

@@ -630,6 +630,7 @@ MonoBehaviour:
   spr90: {fileID: 21300000, guid: 2dc909c58e2d65d428181ffeae4b49fa, type: 3}
   spr180: {fileID: 21300000, guid: 76d401af76a56544f96d53aea18d726b, type: 3}
   rotateTo: 0
+  boom: {fileID: 2130439820725035607, guid: 5e12fb2abb8c6f84caf3778987ed7203, type: 3}
 --- !u!1 &7356295389536376876
 GameObject:
   m_ObjectHideFlags: 0

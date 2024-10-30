@@ -22,6 +22,12 @@ public class LeechEnemy : BaseEnemyScript
     public bool jumpSelect = false;
     public bool activeLeech = false;
     public bool stopAll = false;
+    public bool playsound = true;
+    public bool playsound2 = true;
+
+    public AudioClip sfx;
+    public AudioClip attachsound;
+    public AudioSource sfxSource;
 
     //The leech has a radius where it attempts to find buff and resource towers
     //If it cannot find any within a few seconds of spawning or none exist, it will attempt to search for attack towers
@@ -29,6 +35,7 @@ public class LeechEnemy : BaseEnemyScript
     public override void Start()
     {
         maxHP = 10;
+        sfxSource = GetComponent<AudioSource>();
         base.Start();
     }
     public override void Update()
@@ -130,6 +137,11 @@ public class LeechEnemy : BaseEnemyScript
     }
     public void JumpFunction(GameObject tower)
     {
+        if (playsound)
+        {
+            sfxSource.PlayOneShot(sfx, .5f);
+            playsound = false;
+        }
         SelfRotate(tower);
         //Add visuals for the jump using Moveable
         if (activeLeech == false)
@@ -156,6 +168,11 @@ public class LeechEnemy : BaseEnemyScript
             this.transform.position = new Vector3(friend.transform.position.x, friend.transform.position.y, friend.transform.position.z-.105f);
             friend.GetComponent<MainTower>().leeched = true;
             activeLeech = true;
+            if (playsound2)
+            {
+                sfxSource.PlayOneShot(attachsound, .5f);
+                playsound2 = false;
+            }
         }
     }
 

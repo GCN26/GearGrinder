@@ -32,6 +32,8 @@ public class BaseEnemyScript : MonoBehaviour
     public Sprite spr180;
     public float rotateTo;
 
+    public GameObject boom;
+
     public virtual void Start()
     {
         hp = maxHP;
@@ -49,6 +51,9 @@ public class BaseEnemyScript : MonoBehaviour
         PathFunction();
         if(hp <= 0)
         {
+            GameObject kaboom = Instantiate(boom);
+            kaboom.transform.localScale = this.transform.localScale;
+            kaboom.transform.position = this.transform.position;
             Destroy(gameObject);
         }
         hpSlider.value = hp / maxHP;

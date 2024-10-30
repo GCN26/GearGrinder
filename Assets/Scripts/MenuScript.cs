@@ -11,10 +11,12 @@ public class MenuScript : MonoBehaviour
     public GameObject ctrlTitle;
     public GameObject credText;
     public GameObject credTitle;
-
+    public AudioClip buttonPress;
+    public AudioSource audiosrc;
     public void Start()
     {
         Screen.SetResolution(1920, 1080, true);
+        audiosrc = GetComponent<AudioSource>();
         Time.timeScale = 1;
     }
     public void PlayButton()
@@ -43,7 +45,7 @@ public class MenuScript : MonoBehaviour
     }
     public void QuitButton()
     {
-        //close the game
+        Application.Quit();
     }
 
     public void CloseSubMenu()
@@ -55,5 +57,9 @@ public class MenuScript : MonoBehaviour
         credText.SetActive(false);
         credTitle.SetActive(false);
         subPanel.SetActive(false);
+    }
+    public void PauseButtonSound()
+    {
+        audiosrc.PlayOneShot(buttonPress, 0.75f);
     }
 }

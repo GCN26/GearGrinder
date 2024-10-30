@@ -24,17 +24,27 @@ public class MainTower : BaseTowerScript
     public Sprite upgrade1;
     public Sprite upgrade2;
 
+    public AudioClip soundPlace;
+    public AudioClip soundUpgrade;
+    public AudioSource sound;
+
+    public GameObject destroySound;
+
     public virtual void Start()
     {
         hp = maxHP;
         level = 1;
         z2 = this.transform.position.z -2;
+        sound = GetComponent<AudioSource>();
+        sound.PlayOneShot(soundPlace, 0.75f);
     }
     public override void Update()
     {
         base.Update();
         if(hp <= 0)
         {
+            GameObject destSound;
+            destSound = Instantiate(destroySound, transform.position, transform.rotation);
             GameObject grid;
             grid = Instantiate(selectionManager.GetComponent<SelectionManager>().baseGrid, transform.position, transform.rotation);
             grid.transform.localScale = this.transform.localScale;
@@ -101,6 +111,7 @@ public class MainTower : BaseTowerScript
     public virtual void UpgradeFunction()
     {
         FullHeal();
+        sound.PlayOneShot(soundUpgrade, 0.75f);
     }
     public virtual void FullHeal()
     {

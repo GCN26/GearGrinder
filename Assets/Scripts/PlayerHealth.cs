@@ -5,12 +5,19 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour
 {
     public GameObject manager;
+    public AudioClip hurtSFX;
+    public AudioSource sfxSource;
+    public void Start()
+    {
+        sfxSource = GetComponent<AudioSource>();
+    }
     private void OnTriggerEnter2D(Collider2D other)
     {
         //if juggernaut, automatically set hp to 0
         //else, lower hp by 1
         if (manager.GetComponent<SelectionManager>().hp > 0)
         {
+            sfxSource.PlayOneShot(hurtSFX, .5f);
             if (other.name == "Tank")
             {
                 for (int i = manager.GetComponent<SelectionManager>().hp; i > 0; i--)

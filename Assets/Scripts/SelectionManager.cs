@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -40,9 +41,20 @@ public class SelectionManager : MonoBehaviour
     public GameObject pauseStopper;
     public bool gameOver = false;
 
+    public AudioClip buttonPress;
+    public AudioClip towerSelect;
+    public AudioSource audiosrc;
+
+    public AudioClip gameOverSFX;
+    public AudioClip victorySFX;
+    public bool playsoundGO = true;
+    public bool playsoundV = true;
+
     public void Start()
     {
         Screen.SetResolution(1920, 1080, true);
+        audiosrc = GetComponent<AudioSource>();
+        Time.timeScale = 1;
     }
 
     public void Update()
@@ -64,6 +76,7 @@ public class SelectionManager : MonoBehaviour
 
         if(hp <= 0)
         {
+            GameOverSFX();
             PauseGOV();
         }
 
@@ -77,7 +90,6 @@ public class SelectionManager : MonoBehaviour
                 if (i != 45)
                 {
                     if (i % 5 == 0 && i != 0 && i < 35) spawnTarget -= .25f;
-                    Debug.Log(i);
                     var randE = Random.Range(1, 8);
                     if (randE >= 1 && randE <= 4) toSpawn = pawn;
                     else if (randE >= 5 && randE <= 6) toSpawn = shield;
@@ -190,6 +202,30 @@ public class SelectionManager : MonoBehaviour
     }
     public void ButtonExit()
     {
-        //quit game
+        Application.Quit();
+    }
+
+    public void PauseButtonSound()
+    {
+        audiosrc.PlayOneShot(buttonPress, 0.75f);
+    }
+    public void UIButtonSound()
+    {
+        audiosrc.PlayOneShot(towerSelect, 0.75f);
+    }
+    public void GameOverSFX()
+    {
+        if (playsoundGO) {
+            audiosrc.PlayOneShot(gameOverSFX, .75f);
+            playsoundGO = false;
+        }
+    }
+    public void VictorySFX()
+    {
+        if (playsoundV)
+        {
+            audiosrc.PlayOneShot(victorySFX, .75f);
+            playsoundV = false;
+        }
     }
 }

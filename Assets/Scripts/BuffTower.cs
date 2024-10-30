@@ -10,6 +10,15 @@ public class BuffTower : MainTower
     public float dieTarget = 1;
     public GameObject buffCircle;
 
+    public AudioClip buffSound;
+
+    public override void Start()
+    {
+        base.Start();
+        sound.PlayOneShot(buffSound, 0.75f);
+        level = 3;
+    }
+
     public override void Update()
     {
         base.Update();

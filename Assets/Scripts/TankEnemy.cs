@@ -23,6 +23,7 @@ public class TankEnemy : BaseEnemyScript
             //victory (gameover but switch text)
             manager.GetComponent<SelectionManager>().GOVText.text = "Victory!";
             manager.GetComponent<SelectionManager>().PauseGOV();
+            manager.GetComponent<SelectionManager>().VictorySFX();
         }
         hpSlider.value = hp / maxHP;
         shieldSlider.value = shieldHP / shieldMaxHP;

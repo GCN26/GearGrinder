@@ -832,6 +832,7 @@ MonoBehaviour:
   shieldSlider: {fileID: 1738265474133022702}
   enemyObject: {fileID: 9099679085461922774}
   nodes: []
+  currentNode: 0
   speed: 1
   tolerance: 0.01
   manager: {fileID: 0}
@@ -840,6 +841,8 @@ MonoBehaviour:
   spr0: {fileID: 21300000, guid: 3c76f64077b617a47b79b047f91a6b03, type: 3}
   spr90: {fileID: 21300000, guid: 2dc909c58e2d65d428181ffeae4b49fa, type: 3}
   spr180: {fileID: 21300000, guid: 76d401af76a56544f96d53aea18d726b, type: 3}
+  rotateTo: 0
+  boom: {fileID: 2130439820725035607, guid: 5e12fb2abb8c6f84caf3778987ed7203, type: 3}
   shield: {fileID: 4516122087040291799}
   shieldTimer: 0
   shieldTarget: 5
